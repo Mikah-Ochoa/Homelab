@@ -1,0 +1,12 @@
+﻿# Never commit credentials, keys, or local notes
+
+.obsidian/
+*.env
+secrets/
+*.key
+*.pem
+*.p12
+id_rsa*
+id_ed25519*
+*-config-backup.xml
+*.bak
