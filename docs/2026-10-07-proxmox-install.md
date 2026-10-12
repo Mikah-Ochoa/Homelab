@@ -45,7 +45,7 @@ Turn the Acer Predator Triton 300 into the lab's hypervisor by installing Proxmo
 
 Lid behavior, in `/etc/systemd/logind.conf`:
 
-HandleLidSwitch=ignore 
+HandleLidSwitch=ignore
 
 HandleLidSwitchExternalPower=ignore
 
@@ -53,28 +53,29 @@ HandleLidSwitchExternalPower=ignore
 
 !\[Lid switch set to ignore, confirmed in the shell](images/2026-10-07-lid-switch-fix.png)
 
-Repositories: removed the enterprise and ceph sources, added pve-no-subscription. 
+Repositories: removed the enterprise and ceph sources, added pve-no-subscription.
 
 
 
 !\[BIOS showing SATA Mode set to Optane with RAID](images/2026-10-07-bios-sata-mode-raid.jpg)
 
-&#x20;Temperatures after a few days in the dock with the lid closed: CPU package 60°C, cores 37 to 60°C, NVMe 24.9°C, against a critical threshold of 100°C. Uptime at that check was 2 days 23 hours. 
+&#x20;Temperatures after a few days in the dock with the lid closed: CPU package 60°C, cores 37 to 60°C, NVMe 24.9°C, against a critical threshold of 100°C. Uptime at that check was 2 days 23 hours.
 
 
 
-!\[Proxmox dashboard after first login](images/2026-10-07-proxmox-first-login.png) 
+!\[Proxmox dashboard after first login](images/2026-10-07-proxmox-first-login.png)
 
 ## Problems hit
 
 1. **Saved the ISO to the USB instead of the PC.** Rufus needs to read the ISO from one drive and write to another, and it wipes the target. Moved the file back to Downloads.
 2. **Secure Boot options greyed out.** Fixed by setting a Supervisor Password, which unlocks them on this Acer BIOS.
 3. **F12 Boot Menu was disabled.** Turned it on so I could pick the USB at startup.
-4. **"No Hard Disk found" in the installer.** Fixed with Ctrl + S in the BIOS to reveal the hidden SATA Mode option, then switching it from Optane with RAID to AHCI. 
+4. **"No Hard Disk found" in the installer.** Fixed with Ctrl + S in the BIOS to reveal the hidden SATA Mode option, then switching it from Optane with RAID to AHCI.
 5. **apt update failing with 401 Unauthorized.** Fixed by swapping to the pve-no-subscription repo and deleting the ceph one.
 
 
-!\[Installer could not find a disk](images/2026-10-07-proxmox-no-disk-found.jpg) 
+
+!\[Installer could not find a disk](images/2026-10-07-proxmox-no-disk-found.jpg)
 
 !\[Installer sees the NVMe after switching to AHCI](images/2026-10-07-proxmox-disk-found-after-ahci.jpg)
 
