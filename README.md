@@ -14,13 +14,10 @@ My purpose for building this homelab was to get an understanding of networking a
 
 
 
-- Build a segmented network with partitions that have their own VLAN and subnet
-
-- Ensure only the secure areas of the network can have two way connections, and that IoT devices stay partitioned and cannot reach the rest of the network
-
-- Test network security with the Flipper Zero and detect it using Wazuh
-
-- Self host a streaming service and an ad blocker
+* Build a segmented network with partitions that have their own VLAN and subnet
+* Ensure only the secure areas of the network can have two way connections, and that IoT devices stay partitioned and cannot reach the rest of the network
+* Test network security with the Flipper Zero and detect it using Wazuh
+* Self host a streaming service and an ad blocker
 
 
 
@@ -54,10 +51,7 @@ No managed switch or rack yet. Network segmentation is handled with virtual netw
 
 
 
-- [Laptop teardown and inspection](docs/2026-10-04-laptop-teardown.md)
-
-- [Proxmox install on the Triton 300](docs/2026-10-07-proxmox-install.md)
-
-- [Roadmap](docs/homelab-roadmap.md)
-
+* [Laptop teardown and inspection](docs/2026-10-04-laptop-teardown.md)
+* [Proxmox install on the Triton 300](docs/2026-10-07-proxmox-install.md)
+* [Roadmap](docs/homelab-roadmap.md)
 
