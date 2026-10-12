@@ -91,3 +91,4 @@ The other thing is that my laptop suspended when I close the lid, and a suspende
 * Consider a DHCP reservation on the router so 192.168.1.185 does not get reassigned
 
 
+

@@ -48,3 +48,4 @@ Task Manager reporting the drive as RAID means the storage controller is in Inte
 - Back up anything worth keeping off the laptop, since the Proxmox install will erase Windows
 - Phase 0: set up the GitHub repo, .gitignore, and README
 - Phase 2: switch BIOS to AHCI, confirm virtualization is enabled, then install Proxmox
+

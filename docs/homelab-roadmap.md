@@ -57,7 +57,7 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 * Install Git for Windows (for terminal use) and GitHub Desktop (to see changes visually)
 * Install Obsidian and point it at the repo folder for writing docs
 * Create a repo called `homelab`
-* Write `.gitignore` before the first commit (`.obsidian/`, `\*.env`, `secrets/`)
+* Write `.gitignore` before the first commit (`.obsidian/`, `*.env`, `secrets/`)
 * Turn on secret scanning and push protection in repo settings
 * Write the README purpose section in my own words
 * Done when: first commit pushed with README and .gitignore
@@ -153,4 +153,5 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 * Connect a spare iPhone to that test access point as the client device, so there's real traffic to watch and a client to knock off
 * Flipper with Marauder attacks only that test access point
 * Done when: Kismet detects the Flipper's attack and it's documented
+
 
