@@ -51,19 +51,19 @@ HandleLidSwitchExternalPower=ignore
 
 
 
-!\[Lid switch set to ignore, confirmed in the shell](images/2026-10-07-lid-switch-fix.png)
+![Lid switch set to ignore, confirmed in the shell](images/2026-10-07-lid-switch-fix.png)
 
 Repositories: removed the enterprise and ceph sources, added pve-no-subscription.
 
 
 
-!\[BIOS showing SATA Mode set to Optane with RAID](images/2026-10-07-bios-sata-mode-raid.jpg)
+![BIOS showing SATA Mode set to Optane with RAID](images/2026-10-07-bios-sata-mode-raid.jpg)
 
 &#x20;Temperatures after a few days in the dock with the lid closed: CPU package 60°C, cores 37 to 60°C, NVMe 24.9°C, against a critical threshold of 100°C. Uptime at that check was 2 days 23 hours.
 
 
 
-!\[Proxmox dashboard after first login](images/2026-10-07-proxmox-first-login.png)
+![Proxmox dashboard after first login](images/2026-10-07-proxmox-first-login.png)
 
 ## Problems hit
 
@@ -75,9 +75,9 @@ Repositories: removed the enterprise and ceph sources, added pve-no-subscription
 
 
 
-!\[Installer could not find a disk](images/2026-10-07-proxmox-no-disk-found.jpg)
+![Installer could not find a disk](images/2026-10-07-proxmox-no-disk-found.jpg)
 
-!\[Installer sees the NVMe after switching to AHCI](images/2026-10-07-proxmox-disk-found-after-ahci.jpg)
+![Installer sees the NVMe after switching to AHCI](images/2026-10-07-proxmox-disk-found-after-ahci.jpg)
 
 ## What I learned
 
@@ -89,4 +89,5 @@ The other thing is that my laptop suspended when I close the lid, and a suspende
 
 * Phase 4: build the lab networks inside Proxmox as internal bridges with no physical port
 * Consider a DHCP reservation on the router so 192.168.1.185 does not get reassigned
+
 
