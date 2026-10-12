@@ -10,3 +10,6 @@ id_rsa*
 id_ed25519*
 *-config-backup.xml
 *.bak
+*.exe
+*.msi
+*.zip
