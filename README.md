@@ -25,5 +25,7 @@ No managed switch or rack yet. Network segmentation is handled with virtual netw
 ## Build log
 - [Laptop teardown and inspection](docs/2026-10-04-laptop-teardown.md)
 - [Proxmox install on the Triton 300](docs/2026-10-07-proxmox-install.md)
+- [Network plan](docs/network-plan.md)
 - [Roadmap](docs/homelab-roadmap.md)
+
 
