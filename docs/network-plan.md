@@ -26,7 +26,7 @@ Conventions:
 | 70 | Lab attacker | 10.10.70.0/24 | 10.10.70.1 | Kali |
 | 80 | Lab honeypot | 10.10.80.0/24 | 10.10.80.1 | Raspberry Pi running OpenCanary |
 
-Proxmox management stays on the house network at 192.168.1.185 so I can always reach the web interface, even if I break a lab network.
+Proxmox management stays on the house network at its address on the house network so I can always reach the web interface, even if I break a lab network.
 
 ## Access rules
 
@@ -68,3 +68,4 @@ The firewall is stateful, so an allow rule in one direction lets replies come ba
 - A managed switch that supports 802.1Q VLAN tagging
 - An access point that can map multiple SSIDs to different VLANs
 - A router that can route between VLANs and serve DHCP per VLAN
+
