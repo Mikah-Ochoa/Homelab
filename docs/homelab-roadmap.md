@@ -40,9 +40,9 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 |Ongoing|Linux practice on the Pi|Not started|
 |1|Laptop teardown and upgrades|Done 2026-10-04|
 |2|Proxmox install on the Triton 300|Done 2026-10-07|
-|3|Physical setup and cabling|Not started|
-|4|Lab network segmentation inside Proxmox|Not started|
-|5|OPNsense as lab router|Not started|
+|3|Physical setup and cabling|Done 2026-10-07|
+|4|Lab network segmentation inside Proxmox|Done 2026-10-13|
+|5|OPNsense as lab router|Done 2026-10-14|
 |6|Windows AD domain controller and workstation|Not started|
 |7|Kali attacker VM|Not started|
 |8|Wazuh or Security Onion, traffic mirroring, first detections|Not started|
@@ -57,7 +57,7 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 * Install Git for Windows (for terminal use) and GitHub Desktop (to see changes visually)
 * Install Obsidian and point it at the repo folder for writing docs
 * Create a repo called `homelab`
-* Write `.gitignore` before the first commit (`.obsidian/`, `*.env`, `secrets/`)
+* Write `.gitignore` before the first commit (`.obsidian/`, `\*.env`, `secrets/`)
 * Turn on secret scanning and push protection in repo settings
 * Write the README purpose section in my own words
 * Done when: first commit pushed with README and .gitignore
@@ -88,7 +88,7 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 * Known limits: one NIC, no GPU passthrough, 32GB RAM so Wazuh rather than Security Onion
 * Done when: Proxmox running, reachable from desktop, lid fix verified
 
-### Phase 3: Physical setup
+### Phase 3: Physical setup (Done 2026-10-07)
 
 * Laptop somewhere with airflow, not sealed in or stacked under things
 * Wired Ethernet from the laptop to the house router for the lab's internet uplink
@@ -96,7 +96,7 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 * No rack. Laptop and Pi sit on a shelf or desk for now
 * Done when: laptop placed, wired, and stable running 24/7
 
-### Phase 4: Lab network segmentation
+### Phase 4: Lab network segmentation (Done 2026-10-13)
 
 * Plan lab networks (management, servers, AD, attacker, honeypot) and write the plan down first
 * Build them as internal Proxmox bridges or VLANs with no physical port, so lab traffic never touches the house network
@@ -105,14 +105,20 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 * Done when: lab networks exist, are documented, and the Proxmox web UI is still reachable
 * Later option: a managed switch if I get one, for physical devices like the Pi
 
-### Phase 5: OPNsense
+### Phase 5: OPNsense (Done 2026-10-14)
 
-* OPNsense VM on Proxmox as the lab router only
-* WAN side on the bridge connected to the house network, LAN side on the internal lab networks
-* Firewall rules between lab networks
-* Lab DNS through OPNsense's built in Unbound
-* Export config before every change
-* Done when: lab networks route through OPNsense and rules block what they should
+* Built OPNsense 26.7 as VM 100 with four interfaces: WAN on vmbr0, LAN on vmbr60, LAB\_ATTACKER on vmbr70, LAB\_HONEYPOT on vmbr80
+* Had to switch from OVMF (UEFI) to SeaBIOS because Secure Boot blocked the FreeBSD bootloader
+* LAN at 10.10.60.1/24 with DHCP from .100 to .200, LAB\_ATTACKER at 10.10.70.1/24, LAB\_HONEYPOT at 10.10.80.1/24
+* WAN pulls DHCP from the house router, and it is the only interface with an upstream gateway
+* Created a PrivateNetworks alias and used inverted destination rules so each segment gets internet access but no path to any internal network
+* Attacker can reach lab servers and the honeypot, logged, and neither can reach back
+* Disabled the two default allow-anything LAN rules after the replacement rule was in place
+* Temporary WAN management rule scoped to hogpc only, to be removed once there is a VM on the lab network
+* Snapshots taken at three working states, encrypted config backup stored outside the repo
+* Done when: lab networks route through OPNsense and the rules enforce the access table from the network plan
+
+
 
 ### Phase 6: Windows AD
 
@@ -153,5 +159,4 @@ Goal, What I did, Configuration, Problems hit, What I learned, Next.
 * Connect a spare iPhone to that test access point as the client device, so there's real traffic to watch and a client to knock off
 * Flipper with Marauder attacks only that test access point
 * Done when: Kismet detects the Flipper's attack and it's documented
-
 
